@@ -24,6 +24,12 @@ export const getters = {
   }
 }
 
+export const mutations = {
+}
+
+export const actions = {
+
+}
 
 // // 追記
 // export const mutations = {
