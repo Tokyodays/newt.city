@@ -4,11 +4,12 @@
       <li>{{ post.fields.title }}</li>
       <ul>
         <img
-          :src="post.fields.headerImage.fields.file.url"
-          :alt="post.fields.headerImage.fields.title"
+          :src="setEyeCatch(post.fields.headerImage).url"
+          :alt="setEyeCatch(post.fields.headerImage).title"
           width="400"/>
         <li>{{ post.fields.body }}</li>
         <li>{{ post.fields.publishedAt }}</li>
+        <li><nuxt-link :to="linkTo(post)">aaaa</nuxt-link></li>
       </ul>
     </ul>
   </div>
@@ -19,8 +20,11 @@ import { mapGetters } from 'vuex'
 import client from '~/plugins/contentful'
 
 export default {
-  conputed : {
-    ...mapGetters(['setEyeCatch', 'linkTo'])
+  computed : {
+    linkTo: () => (obj) => {
+      return { name: 'posts-slug', params: { slug: obj.fields.slug } }
+    },
+    ...mapGetters(['setEyeCatch'])
   },
   async asyncData({ env }) {
     let posts = []
