@@ -15,8 +15,8 @@ export const state = () => ({
 })
 
 export const getters = {
-  setEyeCatch: () => (image) => {
-    if (!!image && !!image.fields) return { url: `https:${image.fields.file.url}`, title: image.fields.title }
+  setEyeCatch: () => (headerImage) => {
+    if (!!headerImage && !!headerImage.fields) return { url: `https:${headerImage.fields.file.url}`, title: headerImage.fields.title }
     else return { url: defaultEyeCatch, title: 'defaultImage' }
   },
   linkTo: () => (name, obj) => {
