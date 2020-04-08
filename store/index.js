@@ -1,4 +1,6 @@
 import defaultEyeCatch from '~/assets/images/defaultImage.png'
+import client from '~/plugins/contentful'
+
 // const {getConfigForKeys} = require('@/lib/config.js')
 // const ctfConfig = getConfigForKeys([
 //   'CTF_BLOG_POST_TYPE_ID',
@@ -24,33 +26,25 @@ export const getters = {
   },
   draftChip: () => (post) => {
     if (!post.fields.publishedAt) return 'draftChip'
+  },
+  categoryColor: () => (colorCode) => {
+    return 'background-color:#' + colorCode
   }
 }
 
 export const mutations = {
+  setPosts(state, payload) {
+    state.posts = payload
+  }
 }
 
 export const actions = {
-
+  async getPosts({ commit }) {
+    await client.getEntries({
+      content_type: process.env.CTF_BLOG_POST_TYPE_ID,
+      order: '-fields.publishedAt' // desc
+    }).then(res =>
+      commit('setPosts', res.items)
+    ).catch(console.error)
+  }
 }
-
-// // 追記
-// export const mutations = {
-//   setPosts(state, payload) {
-//     state.posts = payload
-//   }
-
-// }
-
-// // 追記
-// export const actions = {
-//     async getPosts({ commit }) {
-//         return await client.getEntries({
-//           content_type: process.env.CTF_BLOG_POST_TYPE_ID,
-//             order: '-fields.publishedAt',
-//         }).then(entries => {
-//             commit('setPosts', entries.items)
-//         })
-//         .catch(console.error)
-//     }
-// }
