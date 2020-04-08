@@ -23,7 +23,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import client from '~/plugins/contentful'
 import draftChip from '~/components/atom/draftChip'
 
 export default {
@@ -33,14 +32,14 @@ export default {
   computed: {
     ...mapGetters(['setEyeCatch', 'draftChip'])
   },
-  async asyncData({ env, params }) {
-    let currentPost = null
-    await client.getEntries({
-      content_type: env.CTF_BLOG_POST_TYPE_ID,
-      'fields.slug': params.slug
-    }).then(res => (currentPost = res.items[0])).catch(console.error)
+  async asyncData({ payload, store, params, error }) {
+    const currentPost = payload || await store.state.posts.find(post => post.fields.slug === params.slug)
 
-    return { currentPost }
+    if (currentPost) {
+      return { currentPost }
+    } else {
+      return error({ statusCode: 400 })
+    }
   }
 }
 </script>
