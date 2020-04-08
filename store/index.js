@@ -30,6 +30,14 @@ export const getters = {
   },
   categoryColor: () => (colorCode) => {
     return 'background-color:#' + colorCode
+  },
+  relatedPosts: state => (category) => {
+    const posts = []
+    for (let i = 0; i < state.posts.length; i++) {
+      const catId = state.posts[i].fields.category.sys.id
+      if (category.sys.id === catId) posts.push(state.posts[i])
+    }
+    return posts
   }
 }
 

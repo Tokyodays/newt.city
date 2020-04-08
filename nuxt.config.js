@@ -84,11 +84,17 @@ export default {
       return Promise.all([
         client.getEntries({
           content_type: process.env.CTF_BLOG_POST_TYPE_ID
+        }),
+        client.getEntries({        							// 追記
+          content_type: 'category'
         })
       ]).then(([ posts ]) => {
         return [
-          ...posts.items.map(post => {
+          ...posts.items.map((post) => {
             return { route: `posts/${post.fields.slug}`, payload: post }
+          }),
+          ...categories.items.map((category) => {        // 追記
+            return { route: `categories/${category.fields.slug}`, payload: category }
           })
         ]
       })

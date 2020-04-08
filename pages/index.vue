@@ -11,7 +11,7 @@
           <p :style="categoryColor(post.fields.category.fields.color)"><nuxt-link :to="linkTo('categories', post.fields.category)">{{ post.fields.category.fields.name }}</nuxt-link></p>
         <li>{{ post.fields.body }}</li>
         <li>{{ post.fields.publishedAt }}</li>
-        <li><nuxt-link :to="linkTo('posts', post)">aaaa</nuxt-link></li>
+        <li><nuxt-link :to="linkTo('posts', post)">link</nuxt-link></li>
       </ul>
     </ul>
   </div>
