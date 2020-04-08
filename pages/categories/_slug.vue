@@ -5,27 +5,29 @@
       v-for="(post, i) in relatedPosts"
       :key="i"
     >
-      <p>{{ post.fields.category.fields.name }}</p>
-      <p>{{ post.fields.title }}</p>
+      <p><nuxt-link :to="linkTo('posts', post)">{{ post.fields.title }}</nuxt-link></p>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  computed: {
-    relatedPosts() {
-      return this.$store.getters.relatedPosts(this.category)
-    }
-  },
-  async asyncData({ payload, store, params, error }) {
-    const category = payload || await store.state.categories.find(cat => cat.fields.slug === params.slug)
+    import { mapGetters } from 'vuex'
 
-    if (category) {
-      return { category }
-    } else {
-      return error({ statusCode: 400 })
+    export default {
+        computed: {
+            relatedPosts() {
+                return this.$store.getters.relatedPosts(this.category)
+            },
+            ...mapGetters(['linkTo']) 
+        },
+        async asyncData({ payload, store, params, error }) {
+            const category = payload || await store.state.categories.find(cat => cat.fields.slug === params.slug)
+
+            if (category) {
+                return { category }
+            } else {
+                return error({ statusCode: 400 })
+            }
+        }
     }
-  }
-}
 </script>
