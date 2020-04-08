@@ -7,6 +7,7 @@
           :src="setEyeCatch(post.fields.headerImage).url"
           :alt="setEyeCatch(post.fields.headerImage).title"
           width="400"/>
+          <span :is="draftChip(post)" />
         <li>{{ post.fields.body }}</li>
         <li>{{ post.fields.publishedAt }}</li>
         <li><nuxt-link :to="linkTo(post)">aaaa</nuxt-link></li>
@@ -18,13 +19,17 @@
 <script>
 import { mapGetters } from 'vuex'
 import client from '~/plugins/contentful'
+import draftChip from '~/components/atom/draftChip'
 
 export default {
+  components: {
+    draftChip
+  },
   computed : {
     linkTo: () => (obj) => {
       return { name: 'posts-slug', params: { slug: obj.fields.slug } }
     },
-    ...mapGetters(['setEyeCatch'])
+    ...mapGetters(['setEyeCatch', 'draftChip'])
   },
   async asyncData({ env }) {
     let posts = []
