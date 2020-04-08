@@ -18,7 +18,7 @@
           v-for="(tag) in post.fields.tags"
           :key="tag.sys.id"
         >
-        {{ tag.fields.name }}
+        <nuxt-link :to="linkTo('tags', tag)">{{ tag.fields.name }}</nuxt-link>
         </div>
       </template>
     </ul>
