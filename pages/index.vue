@@ -8,7 +8,7 @@
           :alt="setEyeCatch(post.fields.headerImage).title"
           width="400"/>
           <span :is="draftChip(post)" />
-          <li :style="categoryColor(post.fields.category.fields.color)">{{ post.fields.category.fields.name }}</li>
+          <p :style="categoryColor(post.fields.category.fields.color)"><nuxt-link :to="linkTo('categories', post.fields.category)">{{ post.fields.category.fields.name }}</nuxt-link></p>
         <li>{{ post.fields.body }}</li>
         <li>{{ post.fields.publishedAt }}</li>
         <li><nuxt-link :to="linkTo('posts', post)">aaaa</nuxt-link></li>

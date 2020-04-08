@@ -11,7 +11,7 @@
       <span :is="draftChip(currentPost)" />
       {{ currentPost.fields.publishedAt }}<br>
       {{ currentPost.fields.body }}
-      <p :style="categoryColor(currentPost.fields.category.fields.color)">{{ currentPost.fields.category.fields.name }}</p>
+      <p :style="categoryColor(currentPost.fields.category.fields.color)"><nuxt-link :to="linkTo('categories', currentPost.fields.category)">{{ currentPost.fields.category.fields.name }}</nuxt-link></p>
     </template>
 
     <template v-else>
