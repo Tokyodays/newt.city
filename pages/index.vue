@@ -8,6 +8,7 @@
           :alt="setEyeCatch(post.fields.headerImage).title"
           width="400"/>
           <span :is="draftChip(post)" />
+          <li :style="categoryColor(post.fields.category.fields.color)">{{ post.fields.category.fields.name }}</li>
         <li>{{ post.fields.body }}</li>
         <li>{{ post.fields.publishedAt }}</li>
         <li><nuxt-link :to="linkTo('posts', post)">aaaa</nuxt-link></li>
@@ -27,7 +28,7 @@ export default {
   },
   computed : {
     ...mapState(['posts']),
-    ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo']) 
+    ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'categoryColor']) 
   }
 }
 </script>

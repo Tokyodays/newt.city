@@ -11,6 +11,7 @@
       <span :is="draftChip(currentPost)" />
       {{ currentPost.fields.publishedAt }}<br>
       {{ currentPost.fields.body }}
+      <p :style="categoryColor(currentPost.fields.category.fields.color)">{{ currentPost.fields.category.fields.name }}</p>
     </template>
 
     <template v-else>
@@ -30,7 +31,7 @@ export default {
     draftChip
   },
   computed: {
-    ...mapGetters(['setEyeCatch', 'draftChip'])
+    ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'categoryColor'])
   },
   async asyncData({ payload, store, params, error }) {
     const currentPost = payload || await store.state.posts.find(post => post.fields.slug === params.slug)

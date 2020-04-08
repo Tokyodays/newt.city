@@ -26,6 +26,9 @@ export const getters = {
   },
   draftChip: () => (post) => {
     if (!post.fields.publishedAt) return 'draftChip'
+  },
+  categoryColor: () => (colorCode) => {
+    return 'background-color:#' + colorCode
   }
 }
 
