@@ -11,6 +11,7 @@
       <span :is="draftChip(currentPost)" />
       {{ currentPost.fields.publishedAt }}<br>
       {{ currentPost.fields.body }}
+      <p :style="categoryColor(currentPost.fields.category.fields.color)"><nuxt-link :to="linkTo('categories', currentPost.fields.category)">{{ currentPost.fields.category.fields.name }}</nuxt-link></p>
     </template>
 
     <template v-else>
@@ -23,7 +24,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import client from '~/plugins/contentful'
 import draftChip from '~/components/atom/draftChip'
 
 export default {
@@ -31,16 +31,16 @@ export default {
     draftChip
   },
   computed: {
-    ...mapGetters(['setEyeCatch', 'draftChip'])
+    ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'categoryColor'])
   },
-  async asyncData({ env, params }) {
-    let currentPost = null
-    await client.getEntries({
-      content_type: env.CTF_BLOG_POST_TYPE_ID,
-      'fields.slug': params.slug
-    }).then(res => (currentPost = res.items[0])).catch(console.error)
+  async asyncData({ payload, store, params, error }) {
+    const currentPost = payload || await store.state.posts.find(post => post.fields.slug === params.slug)
 
-    return { currentPost }
+    if (currentPost) {
+      return { currentPost }
+    } else {
+      return error({ statusCode: 400 })
+    }
   }
 }
 </script>

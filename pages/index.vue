@@ -8,16 +8,17 @@
           :alt="setEyeCatch(post.fields.headerImage).title"
           width="400"/>
           <span :is="draftChip(post)" />
+          <p :style="categoryColor(post.fields.category.fields.color)"><nuxt-link :to="linkTo('categories', post.fields.category)">{{ post.fields.category.fields.name }}</nuxt-link></p>
         <li>{{ post.fields.body }}</li>
         <li>{{ post.fields.publishedAt }}</li>
-        <li><nuxt-link :to="linkTo(post)">aaaa</nuxt-link></li>
+        <li><nuxt-link :to="linkTo('posts', post)">link</nuxt-link></li>
       </ul>
     </ul>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import client from '~/plugins/contentful'
 import draftChip from '~/components/atom/draftChip'
 
@@ -26,18 +27,8 @@ export default {
     draftChip
   },
   computed : {
-    linkTo: () => (obj) => {
-      return { name: 'posts-slug', params: { slug: obj.fields.slug } }
-    },
-    ...mapGetters(['setEyeCatch', 'draftChip'])
-  },
-  async asyncData({ env }) {
-    let posts = []
-    await client.getEntries({
-      content_type: env.CTF_BLOG_POST_TYPE_ID,
-      order: '-fields.publishedAt'
-    }).then(res => (posts = res.items)).catch(console.error)
-    return { posts }
+    ...mapState(['posts']),
+    ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'categoryColor']) 
   }
 }
 </script>

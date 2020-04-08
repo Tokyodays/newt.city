@@ -55,6 +55,13 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
   ],
+
+  router: {
+    middleware: [
+      'getContentful'
+    ]
+  },
+  
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -77,11 +84,17 @@ export default {
       return Promise.all([
         client.getEntries({
           content_type: process.env.CTF_BLOG_POST_TYPE_ID
+        }),
+        client.getEntries({
+          content_type: 'category'
         })
-      ]).then(([ posts ]) => {
+      ]).then(([ posts, categories ]) => {
         return [
-          ...posts.items.map(post => {
+          ...posts.items.map((post) => {
             return { route: `posts/${post.fields.slug}`, payload: post }
+          }),
+          ...categories.items.map((category) => {
+            return { route: `categories/${category.fields.slug}`, payload: category }
           })
         ]
       })
