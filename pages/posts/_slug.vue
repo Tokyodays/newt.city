@@ -1,17 +1,19 @@
 <template>
   <div>
     <template v-if="currentPost">
-      {{ currentPost.fields.title }}
-      <img
-        :src="setEyeCatch(currentPost.fields.headerImage).url"
-        :alt="setEyeCatch(currentPost.fields.headerImage).title"
-        width="700"
-        height="400"
-      />
-      <span :is="draftChip(currentPost)" />
-      {{ currentPost.fields.publishedAt }}<br>
-      {{ currentPost.fields.body }}
+      <h1>{{ currentPost.fields.title }}</h1>
+      <figure>
+        <img
+          :src="setEyeCatch(currentPost.fields.headerImage).url"
+          :alt="setEyeCatch(currentPost.fields.headerImage).title"
+          width="700"
+        />
+      </figure>
+      <p><span :is="draftChip(currentPost)" /></p>
+      <p>{{ currentPost.fields.publishedAt }}</p>
       <p :style="categoryColor(currentPost.fields.category.fields.color)"><nuxt-link :to="linkTo('categories', currentPost.fields.category)">{{ currentPost.fields.category.fields.name }}</nuxt-link></p>
+
+      <div v-html="$md.render(currentPost.fields.body)"></div>
     </template>
 
     <template v-else>
