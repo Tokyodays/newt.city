@@ -13,6 +13,14 @@
         <li>{{ post.fields.publishedAt }}</li>
         <li><nuxt-link :to="linkTo('posts', post)">link</nuxt-link></li>
       </ul>
+      <template v-if="post.fields.tags">
+        <div
+          v-for="(tag) in post.fields.tags"
+          :key="tag.sys.id"
+        >
+        <nuxt-link :to="linkTo('tags', tag)">{{ tag.fields.name }}</nuxt-link>
+        </div>
+      </template>
     </ul>
   </div>
 </template>
