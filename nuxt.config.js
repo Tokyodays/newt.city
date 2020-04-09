@@ -30,7 +30,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    'plugins/contentful'
+    '~/plugins/contentful',
+    '~/plugins/markdownit',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -49,6 +50,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/markdownit',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
