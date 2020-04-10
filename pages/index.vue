@@ -1,6 +1,9 @@
 <template>
   <div class="grid grid-cols-4">
-    <header class="col-span-1">aaaa</header>
+    <header class="col-span-1 bg-teal-200">
+      <h1>BLOG</h1>
+      
+    </header>
     <main class="col-span-3">
       <ul v-for="(post, i) in posts" :key="i">
         <li>{{ post.fields.title }} <airplay-icon size="1.5x" class="custom-class"></airplay-icon></li>
