@@ -29,6 +29,7 @@ import { mapGetters } from 'vuex'
 import draftChip from '~/components/atom/draftChip'
 
 export default {
+  transition: 'slide-left',
   components: {
     draftChip
   },
