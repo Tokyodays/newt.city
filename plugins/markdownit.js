@@ -1,4 +1,7 @@
 import MarkdownIt from 'markdown-it'
+import MarkdownItAnchor from 'markdown-it-anchor'
+import uslug from 'uslug'
+const uslugify = (s) => uslug(s)
 
 export default ({ app }, inject) => {
 
@@ -10,7 +13,9 @@ export default ({ app }, inject) => {
     typography: true  // 言語に依存しないきれいな 置換 + 引用符 を有効にします。
   })
 
-  md.use(require("markdown-it-anchor"))             // 追加
+  md.use(MarkdownItAnchor,{
+    slugify: uslugify
+  })
   md.use(require("markdown-it-table-of-contents"))  // 追加
 
   const defaultRender = md.renderer.rules.link_open || function (tokens, idx, options, env, self) {
