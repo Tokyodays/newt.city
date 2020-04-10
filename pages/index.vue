@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul v-for="(post, i) in posts" :key="i">
-      <li>{{ post.fields.title }}</li>
+      <li>{{ post.fields.title }} <airplay-icon size="1.5x" class="custom-class"></airplay-icon></li>
       <ul>
         <img
           :src="setEyeCatch(post.fields.headerImage).url"
@@ -29,11 +29,13 @@
 import { mapState, mapGetters } from 'vuex'
 import client from '~/plugins/contentful'
 import draftChip from '~/components/atom/draftChip'
+import { AirplayIcon, AtSignIcon } from 'vue-feather-icons'
 
 export default {
   transition: 'slide-left',
   components: {
-    draftChip
+    draftChip,
+    AirplayIcon
   },
   computed : {
     ...mapState(['posts']),

@@ -37,6 +37,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/tailwindcss'
   ],
 
   env: {
@@ -58,10 +59,6 @@ export default {
     '@nuxtjs/dotenv',
   ],
 
-  devModules: [
-    '@nuxtjs/tailwindcss'
-  ],
-  
   router: {
     middleware: [
       'getContentful'
