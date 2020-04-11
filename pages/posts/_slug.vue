@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <article class="container mx-auto markdown">
     <template v-if="currentPost">
       <h1>{{ currentPost.fields.title }}</h1>
       <figure>
@@ -21,7 +21,7 @@
     </template>
 
     <nuxt-link to="/">Home page</nuxt-link>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -47,3 +47,68 @@ export default {
   }
 }
 </script>
+
+<style>
+/* purgecss start ignore */
+/* Markdown Styles */
+/* Global */
+.markdown {
+  @apply leading-relaxed text-lg;
+}
+/* Headers */
+.markdown h1,
+.markdown h2 {
+  @apply text-2xl my-6 font-bold;
+}
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  @apply text-xl my-3 font-semibold;
+}
+/* Links */
+.markdown a {
+  @apply text-blue-600;
+}
+.markdown a:hover {
+  @apply underline;
+}
+/* Paragraph */
+.markdown p {
+  @apply mb-4;
+}
+/* Lists */
+.markdown ul,
+.markdown ol {
+  @apply mb-4 ml-8;
+}
+.markdown li > p,
+.markdown li > ul,
+.markdown li > ol {
+  @apply mb-0;
+}
+.markdown ol {
+  @apply list-decimal;
+}
+.markdown ul {
+  @apply list-disc;
+}
+/* Blockquotes */
+.markdown blockquote {
+  @apply p-0 p-2 mx-6 bg-gray-100 mb-4 border-l-4 border-gray-400 italic;
+}
+.markdown blockquote > p {
+  @apply mb-0;
+}
+/* Tables */
+.markdown td,
+.markdown th {
+  @apply px-2 py-1 border border-gray-400;
+}
+.markdown tr:nth-child(odd) {
+  @apply bg-gray-100;
+}
+.markdown table {
+  @apply mb-6;
+}
+</style>

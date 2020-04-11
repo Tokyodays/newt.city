@@ -20,7 +20,7 @@ export const getters = {
     if (!post.fields.publishedAt) return 'draftChip'
   },
   categoryColor: () => (colorCode) => {
-    return 'background-color:#' + colorCode
+    return 'color:#' + colorCode
   },
   relatedPosts: state => (category) => {
     const posts = []
