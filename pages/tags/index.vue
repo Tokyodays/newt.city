@@ -1,31 +1,13 @@
 <template>
-  <div>
-    <h1>Tags</h1>
-    <div
-      v-for="(tag, i) in tags"
-      :key="i"
-    >
-      <nuxt-link
-        :to="linkTo('tags', tag)"
-      >
-        {{ tag.fields.name }}
-      </nuxt-link>{{ postCount(tag) }}
-    </div>
-  </div>
+  <tag-list></tag-list>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import tagList from '@/components/molecules/tagList_mol'
 
 export default {
-  computed: {
-    ...mapState(['tags']),
-    ...mapGetters(['linkTo']),
-    postCount() {
-      return (currentTag) => {
-        return this.$store.getters.associatePosts(currentTag).length
-      }
-    }
+  components: {
+    tagList
   }
 }
 </script>

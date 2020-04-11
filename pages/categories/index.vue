@@ -1,26 +1,13 @@
 <template>
-  <div>
-    <h1>Categories</h1>
-    <div
-      v-for="(category, i) in categories"
-      :key="i"
-    >
-      <nuxt-link
-        :to="linkTo('categories', category)"
-      >
-        {{ category.fields.name }}
-      </nuxt-link>
-    </div>
-  </div>
+  <category-list></category-list>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import categoryList from '@/components/molecules/categoryList_mol'
 
 export default {
-  computed: {
-    ...mapState(['categories']),
-    ...mapGetters(['linkTo'])
+  components: {
+    categoryList
   }
 }
 </script>
