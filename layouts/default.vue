@@ -1,11 +1,10 @@
 <template>
-   <transition name="page">
-     <nuxt />
-   </transition>
+  <nuxt />
 </template>
 
 <style>
-.slide-left-enter {
+
+/* .slide-left-enter {
   transform: translateX(2000px);
   opacity: 0;
 }
@@ -25,6 +24,6 @@
  }
  .page-enter-active {
   transition: all .3s linear;
- }
+ } */
  
 </style>

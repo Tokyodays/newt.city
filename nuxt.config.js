@@ -37,8 +37,13 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/moment'
   ],
+
+  moment: {
+    locales: ['ja']
+  },
 
   env: {
     // contentful
