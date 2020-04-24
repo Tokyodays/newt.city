@@ -25,6 +25,7 @@
     "vue-feather-icons": "^5.0.0"
   },
   "devDependencies": {
+    "@nuxtjs/moment": "^1.6.0",
     "@nuxtjs/tailwindcss": "^1.4.0"
   }
 }
