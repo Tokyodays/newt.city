@@ -7,9 +7,10 @@
         >
           <figure class="w-4/12 relative overflow-hidden bg-gray-900">
             <img class="w-full h-full absolute object-cover"
-            :src="setEyeCatch(post.fields.headerImage).url"
-            :alt="setEyeCatch(post.fields.headerImage).title"
-           />
+              loading="lazy"
+              :src="setEyeCatch(post.fields.headerImage).url"
+              :alt="setEyeCatch(post.fields.headerImage).title"
+            />
           </figure>
           <div class="w-8/12 border-b p-16 over">
             <h1 class="text-2xl -ml-4 pl-4 leading-none border-l-4 border-darkColor1 text-gray-800 mb-4" style="transform: translate(-4px, 0);">{{ post.fields.title }}</h1>
@@ -21,16 +22,16 @@
             <p class="mb-2 text-sm text-gray-600">
               <span class="mr-4"><folder-icon size="1x" class="icon"></folder-icon> {{ post.fields.category.fields.name }}</span>
               <span class="mr-4"><pen-tool-icon size="1x" class="icon"></pen-tool-icon> {{ post.fields.auther.fields.name }}</span>
-              <span v-if="post.fields.tags">
+              <template v-if="post.fields.tags">
                 <span class="text-sm text-gray-600 mr-2"
                   v-for="(tag) in post.fields.tags"
                   :key="tag.sys.id"
                 >
                   <tag-icon size="1x" class="icon" ></tag-icon> {{ tag.fields.name }}
                 </span>
-              </span>
+              </template>
             </p>
-            <p class="text-base text-gray-800">{{post.fields.description }}</p>
+            <p class="text-base text-gray-800">{{ post.fields.description }}</p>
 
           </div>
         </nuxt-link>
