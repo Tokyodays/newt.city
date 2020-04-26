@@ -62,6 +62,7 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    '@nuxtjs/sitemap'
   ],
 
   router: {
@@ -76,6 +77,32 @@ export default {
   */
   axios: {
   },
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://vigorous-ritchie-8a5f58.netlify.app',
+    cacheTime: 1000 * 60 * 15,
+    async routes () {
+      return Promise.all([
+        client.getEntries({
+          content_type: process.env.CTF_BLOG_POST_TYPE_ID
+        })
+      ]).then(([posts, categories, tags]) => {
+        return [
+          ...posts.items.map((post) => {
+            const lastmod = (post.fields.modifiedAt !== void 0) ? post.fields.modifiedAt : post.fields.publishedAt
+            return { 
+              url: `posts/${post.fields.slug}`,
+              lastmodISO: lastmod,
+              priority: 0.6,
+              changefreq: 'weekly'
+            }
+          })
+        ]
+      })
+    }
+  },
+
   /*
   ** Build configuration
   */
