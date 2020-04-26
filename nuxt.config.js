@@ -90,9 +90,10 @@ export default {
       ]).then(([posts, categories, tags]) => {
         return [
           ...posts.items.map((post) => {
+            const lastmod = (post.fields.modifiedAt !== void 0) ? post.fields.modifiedAt : post.fields.publishedAt
             return { 
               url: `posts/${post.fields.slug}`,
-              lastmodISO: new Date().toISOString(),
+              lastmodISO: lastmod,
               priority: 0.6,
               changefreq: 'weekly'
             }
