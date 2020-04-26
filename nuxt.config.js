@@ -38,8 +38,13 @@ export default {
   */
   buildModules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    '@nuxtjs/gtm'
   ],
+
+  gtm: {
+    id: 'GTM-N5T6V5Z'
+  },
 
   moment: {
     locales: ['ja']
