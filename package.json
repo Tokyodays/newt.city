@@ -1,7 +1,9 @@
 {
-  "name": "blog",
+  "name": "the_newt_city",
+  "title": "The Newt City",
+  "domain": "https://newtcity.netlify.app/",
   "version": "1.0.0",
-  "description": "My delightful Nuxt.js project",
+  "description": "旅ログを中心に日々の日記を綴ります",
   "author": "Tokyodays",
   "private": true,
   "scripts": {
@@ -22,6 +24,7 @@
     "markdown-it-table-of-contents": "^0.4.4",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
+    "nuxt-jsonld": "^1.4.9",
     "sass-loader": "^8.0.2",
     "uslug": "^1.0.4",
     "vue-feather-icons": "^5.0.0"

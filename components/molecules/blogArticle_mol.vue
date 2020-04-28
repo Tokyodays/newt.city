@@ -66,11 +66,11 @@ export default {
   components: {
     draftChip,
     TagIcon,
-     FolderIcon, 
-     ClockIcon, 
-     RefreshCwIcon, 
-     PenToolIcon,
-     ArrowLeftCircleIcon
+    FolderIcon, 
+    ClockIcon, 
+    RefreshCwIcon, 
+    PenToolIcon,
+    ArrowLeftCircleIcon
   },
   computed: {
     ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'categoryColor'])

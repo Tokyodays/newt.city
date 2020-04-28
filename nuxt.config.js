@@ -7,11 +7,33 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    htmlAttrs: {
+      prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      lang: 'ja'
+    },
+    title: process.env.npm_package_title || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge'},
+      { hid: 'viewport', name: 'viewport', content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0' },
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      { hid: 'keywords', name: 'keywords', content: 'journey, music, toeic, shogi, video game' },
+      { hid: 'theme-color', name: 'theme-color', content: '#A2A4B4'},
+      { hid: 'robots', name: 'robots', content: 'index,follow,noarchive'},
+      { hid: 'format-detection', name: 'format-detection', content: 'telephone=no'},
+      { hid: 'copyright', name: 'copyright', content: '&copy; The Newt City, No reproduction without permission.'},
+      { hid: 'auther', name: 'author', content: 'Tokyodays'},
+      { hid: 'og:url', property: 'og:url', content: process.env.npm_package_domain },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:image', property: 'og:image', content: `${process.env.npm_package_domain}assets/images/ogimage.png` },
+      { hid: 'og:title', property: 'og:title', content: process.env.npm_package_title },
+      { hid: 'og:site_name', property: 'og:site_name', content: process.env.npm_package_title },
+      { hid: 'og:description', property: 'og:description', content: process.env.npm_package_description || '' },
+      { hid: 'article:publisher', property: 'article:publisher', content: process.env.npm_package_author },
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+      { hid: 'twitter:site', name: 'twitter:site', content: '@kikuchi_takeshi' },
+      { hid: 'twitter:title', name: 'twitter:title', content: process.env.npm_package_title },
+      { hid: 'twitter:description', name: 'twitter:description', content: process.env.npm_package_description || '' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -32,6 +54,7 @@ export default {
   plugins: [
     '~/plugins/contentful',
     '~/plugins/markdownit',
+    '~/plugins/jsonld'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -85,7 +108,7 @@ export default {
 
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://vigorous-ritchie-8a5f58.netlify.app',
+    hostname: 'https://newtcity.netlify.app/',
     cacheTime: 1000 * 60 * 15,
     async routes () {
       return Promise.all([
