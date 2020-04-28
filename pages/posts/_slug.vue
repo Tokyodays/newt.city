@@ -34,6 +34,40 @@ export default {
   computed: {
     ...mapGetters(['setEyeCatch'])
   },
+  jsonld() {
+    let post = this.currentPost;
+    return {
+      '@context': 'http://schema.org',
+      '@type': 'Article',
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': process.env.npm_package_domain
+      },
+      'headline': post.fields.title,
+      'description': post.fields.description,
+      'image': [
+        this.setEyeCatch(post.fields.headerImage).url
+      ],
+      'datePublished': post.fields.publishedAt,
+      'dateModified': post.fields.modifiedAt,
+      'auther': {
+        '@type': 'Person',
+        'name': post.fields.auther.fields.name
+      },
+      'Publisher': {
+        '@type': 'Person',
+        'name': 'The Newt City',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': `${process.env.npm_package_domain}assets/images/logo_w_h.svg`
+        }
+      },
+      'articleBody': post.fields.body,
+      'articleSection': post.fields.category.fields.name,
+      'wordCount': post.fields.body.length,
+      'url': `${process.env.npm_package_domain}posts/${post.fields.slug}`
+    }
+  },
   async asyncData({ payload, store, params, error }) {
     const currentPost = payload || await store.state.posts.find(post => post.fields.slug === params.slug)
 
