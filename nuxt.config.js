@@ -108,7 +108,7 @@ export default {
 
   sitemap: {
     path: '/sitemap.xml',
-    hostname: process.env.npm_package_domain,
+    hostname: 'https://newtcity.netlify.app/',
     cacheTime: 1000 * 60 * 15,
     async routes () {
       return Promise.all([
