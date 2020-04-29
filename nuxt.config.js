@@ -29,7 +29,7 @@ export default {
       { hid: 'og:title', property: 'og:title', content: process.env.npm_package_title },
       { hid: 'og:site_name', property: 'og:site_name', content: process.env.npm_package_title },
       { hid: 'og:description', property: 'og:description', content: process.env.npm_package_description || '' },
-      { hid: 'article:publisher', property: 'article:publisher', content: process.env.npm_package_author },
+      { hid: 'article:publisher', property: 'article:publisher', content: process.env.npm_package_title },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
       { hid: 'twitter:site', name: 'twitter:site', content: '@kikuchi_takeshi' },
       { hid: 'twitter:title', name: 'twitter:title', content: process.env.npm_package_title },
