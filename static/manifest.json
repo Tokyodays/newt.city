@@ -2,7 +2,7 @@
 	"name":				"The Newt City",
 	"short_name":		"Newt City",
 	"description":		"旅ログを中心に日々の日記を綴ります",
-	"start_url":		"/",
+	"start_url":		"/?utm_source=homescreen",
 	"display":			"standalone",
 	"background_color":	"#fffced",
 	"theme_color":		"#A2A4B4",
