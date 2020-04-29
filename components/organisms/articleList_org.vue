@@ -12,8 +12,8 @@
               :alt="setEyeCatch(post.fields.headerImage).title"
             />
           </figure>
-          <div class="w-8/12 border-b p-16 over">
-            <h1 class="text-2xl -ml-4 pl-4 leading-none border-l-4 border-darkColor1 text-gray-800 mb-4" style="transform: translate(-4px, 0);">{{ post.fields.title }}</h1>
+          <div class="w-8/12 border-b px-12 py-6 md:p-16 over">
+            <h1 class="text-xl -ml-2 pl-2 border-l-2 md:text-2xl md:-ml-4 md:pl-4 md:border-l-4 leading-none  border-darkColor1 text-gray-800 mb-4" style="transform: translate(-4px, 0);">{{ post.fields.title }}</h1>
             <p :is="draftChip(post)" />
             <p class="mb-2 text-subColor2 text-xs">
               <clock-icon size="1x" class="inline-block align-text-bottom"></clock-icon> <span class="mr-4" v-text="$moment(post.fields.publishedAt).format('YYYY / MM / DD')"></span>

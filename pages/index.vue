@@ -1,9 +1,9 @@
 <template>
-  <div class="grid grid-cols-4 h-screen">
-    <menu-column></menu-column>
-    <main class="col-span-3">
+  <div class="md:grid md:grid-cols-4 h-screen">
+    <main class="md:row-start-1 md:col-start-2 md:col-span-3">
       <article-list></article-list>
     </main>    
+    <menu-column class="md:row-start-1 md:col-start-1"></menu-column>
   </div>
 </template>
 
