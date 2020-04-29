@@ -22,7 +22,7 @@ export default {
       { hid: 'robots', name: 'robots', content: 'index,follow,noarchive'},
       { hid: 'format-detection', name: 'format-detection', content: 'telephone=no'},
       { hid: 'copyright', name: 'copyright', content: '&copy; The Newt City, No reproduction without permission.'},
-      { hid: 'auther', name: 'author', content: 'Tokyodays'},
+      { hid: 'auther', name: 'author', content: process.env.npm_package_author},
       { hid: 'og:url', property: 'og:url', content: process.env.npm_package_domain },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:image', property: 'og:image', content: `${process.env.npm_package_domain}assets/images/ogimage.png` },
@@ -108,7 +108,7 @@ export default {
 
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://newtcity.netlify.app/',
+    hostname: process.env.npm_package_domain,
     cacheTime: 1000 * 60 * 15,
     async routes () {
       return Promise.all([
