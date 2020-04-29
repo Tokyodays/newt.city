@@ -27,7 +27,11 @@ export default {
         { hid: 'og:title', property: 'og:title', content: post.fields.title },
         { hid: 'og:description', property: 'og:description', content: post.fields.description },
         { hid: 'og:url', property: 'og:url', content: `${process.env.npm_package_domain}posts/${post.fields.slug}` },
-        { hid: 'og:image', property: 'og:image', content: this.setEyeCatch(post.fields.headerImage).url }
+        { hid: 'og:image', property: 'og:image', content: this.setEyeCatch(post.fields.headerImage).url },
+        { hid: 'auther', name: 'author', content: post.fields.auther.fields.name },
+        { hid: 'article:publisher', property: 'article:publisher', content: post.fields.auther.fields.name },
+        { hid: 'twitter:title', name: 'twitter:title', content: post.fields.title},
+        { hid: 'twitter:description', name: 'twitter:description', content: post.fields.description|| '' },
       ],
     }
   },
