@@ -124,6 +124,7 @@ export default {
 
   pwa:{
     manifest: {
+      "lang": "ja",
       "name":				"The Newt City",
       "short_name":		"Newt City",
       "description":		"旅ログを中心に日々の日記を綴ります",
@@ -131,24 +132,7 @@ export default {
       "display":			"standalone",
       "background_color":	"#fffced",
       "theme_color":		"#A2A4B4",
-      "orientation":		"any",
-      "icons": [
-        {
-          "src": "/android-chrome-72x72.png",
-          "sizes": "72x72",
-          "type": "image/png"
-        },
-        {
-          "src": "/android-chrome-256x256.png",
-          "sizes": "256x256",
-          "type": "image/png"
-        },
-        {
-          "src": "/android-chrome-512x512.png",
-          "sizes": "512x512",
-          "type": "image/png"
-        }
-      ]
+      "orientation":		"any"
     }
   },
 
