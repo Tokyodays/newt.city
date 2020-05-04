@@ -34,25 +34,25 @@ export default {
       { hid: 'twitter:site', name: 'twitter:site', content: '@kikuchi_takeshi' },
       { hid: 'twitter:title', name: 'twitter:title', content: process.env.npm_package_title },
       { hid: 'twitter:description', name: 'twitter:description', content: process.env.npm_package_description || '' },
-      { hid: 'msapplication-square70x70logo', name: 'msapplication-square70x70logo', content: `${process.env.npm_package_domain}assets/images/icons/site-tile-70x70.png` },
-      { hid: 'msapplication-square150x150logo', name: 'msapplication-square150x150logo', content: `${process.env.npm_package_domain}assets/images/icons/site-tile-150x150.png` },
-      { hid: 'msapplication-wide310x150logo', name: 'msapplication-wide310x150logo', content: `${process.env.npm_package_domain}assets/images/icons/site-tile-310x150.png` },
-      { hid: 'msapplication-square310x310logo', name: 'msapplication-square310x310logo', content: `${process.env.npm_package_domain}assets/images/icons/site-tile-310x310.png` },
+      { hid: 'msapplication-square70x70logo', name: 'msapplication-square70x70logo', content: '/site-tile-70x70.png' },
+      { hid: 'msapplication-square150x150logo', name: 'msapplication-square150x150logo', content: 'assets/images/icons/site-tile-150x150.png' },
+      { hid: 'msapplication-wide310x150logo', name: 'msapplication-wide310x150logo', content: '/site-tile-310x150.png' },
+      { hid: 'msapplication-square310x310logo', name: 'msapplication-square310x310logo', content: '/site-tile-310x310.png' },
       { hid: 'msapplication-TileColor', name: 'msapplication-TileColor', content: '#A2A4B4' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'icon', type: 'image/vnd.microsoft.icon', href: '/favicon.ico' },
       { rel: 'shortcut icon', type: 'image/vnd.microsoft.icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', sizes: '76x76', href: `${process.env.npm_package_domain}assets/images/icons/apple-touch-icon-76x76.png` },
-      { rel: 'apple-touch-icon', sizes: '152x152', href: `${process.env.npm_package_domain}assets/images/icons/apple-touch-icon-152x152.png` },
-      { rel: 'icon', type: 'image/png', sizes: '72x72', href: `${process.env.npm_package_domain}assets/images/icons/android-chrome-72x72.png` },
-      { rel: 'icon', type: 'image/png', sizes: '256x256', href: `${process.env.npm_package_domain}assets/images/icons/android-chrome-256x256.png` },
-      { rel: 'icon', type: 'image/png', sizes: '512x512', href: `${process.env.npm_package_domain}assets/images/icons/android-chrome-512x512.png` },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: `${process.env.npm_package_domain}assets/images/icons/icon-16x16.png` },
-      { rel: 'icon', type: 'image/png', sizes: '48x48', href: `${process.env.npm_package_domain}assets/images/icons/icon-48x48.png` },
-      { rel: 'icon', type: 'image/png', sizes: '144x144', href: `${process.env.npm_package_domain}assets/images/icons/icon-144x144.png` },
-      { rel: 'icon', type: 'image/png', sizes: '512x512', href: `${process.env.npm_package_domain}assets/images/icons/icon-512x512.png` }
+      { rel: 'apple-touch-icon', sizes: '76x76', href: '/apple-touch-icon-76x76.png' },
+      { rel: 'apple-touch-icon', sizes: '152x152', href: '/apple-touch-icon-152x152.png' },
+      { rel: 'icon', type: 'image/png', sizes: '72x72', href: '/android-chrome-72x72.png' },
+      { rel: 'icon', type: 'image/png', sizes: '256x256', href: '/android-chrome-256x256.png' },
+      { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/android-chrome-512x512.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/icon-16x16.png' },
+      { rel: 'icon', type: 'image/png', sizes: '48x48', href: '/icon-48x48.png' },
+      { rel: 'icon', type: 'image/png', sizes: '144x144', href: '/icon-144x144.png' },
+      { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/icon-512x512.png' }
     ]
   },
   /*
@@ -120,6 +120,36 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+
+  pwa:{
+    manifest: {
+      "name":				"The Newt City",
+      "short_name":		"Newt City",
+      "description":		"旅ログを中心に日々の日記を綴ります",
+      "start_url":		"/?utm_source=homescreen",
+      "display":			"standalone",
+      "background_color":	"#fffced",
+      "theme_color":		"#A2A4B4",
+      "orientation":		"any",
+      "icons": [
+        {
+          "src": "/android-chrome-72x72.png",
+          "sizes": "72x72",
+          "type": "image/png"
+        },
+        {
+          "src": "/android-chrome-256x256.png",
+          "sizes": "256x256",
+          "type": "image/png"
+        },
+        {
+          "src": "/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    }
   },
 
   sitemap: {

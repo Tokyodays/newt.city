@@ -3,7 +3,10 @@
 </template>
 
 <style>
-
+html {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+  scroll-behavior: smooth;
+}
 /* .slide-left-enter {
   transform: translateX(2000px);
   opacity: 0;
