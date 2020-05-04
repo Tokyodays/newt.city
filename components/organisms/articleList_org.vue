@@ -5,7 +5,7 @@
         <nuxt-link class="flex overflow overflow-hidden"
           :to="linkTo('posts', post)"
         >
-          <figure class="w-4/12 relative overflow-hidden bg-gray-900">
+          <figure class="w-4/12 relative overflow-hidden">
             <img class="w-full h-full absolute object-cover"
               loading="lazy"
               :src="setEyeCatch(post.fields.headerImage).url"
