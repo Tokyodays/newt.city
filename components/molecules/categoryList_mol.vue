@@ -1,6 +1,6 @@
 <template>
   <aside>
-    <h1 class="text-white text-1xl mb-3">Categories</h1>
+    <h1 class="text-white text-2xl mb-4">Categories</h1>
     <ul>
       <li class="mb-2"
         v-for="(category, i) in categories"

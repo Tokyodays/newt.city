@@ -7,12 +7,12 @@
           :alt="setEyeCatch(currentPost.fields.headerImage).title"
           loading="lazy"
         />
-        <div class="flex flex-col justify-between p-24" style="height:80vh">
+        <div class="flex flex-col justify-between p-6 md:p-24 h-auto md:h-screen">
           <div>
             <p class="text-white"><nuxt-link to="/"><arrow-left-circle-icon size="3x" class="icon"></arrow-left-circle-icon></nuxt-link></p>
           </div>
           <div>
-            <h1 class="text-6xl -ml-8 pl-6 leading-none border-l-4 border-white text-white mb-8 font-bold palt">{{ currentPost.fields.title }}</h1>
+            <h1 class="text-3xl md:text-6xl mt-24 md:mt-auto -ml-8 pl-8 md:pl-6 leading-none md:border-l-4 md:border-white text-white mb-8 font-bold palt">{{ currentPost.fields.title }}</h1>
             <p class="mb-2 text-white text-base">
               <clock-icon size="1x" class="inline-block align-text-bottom"></clock-icon> <span class="mr-4" v-text="$moment(currentPost.fields.publishedAt).format('YYYY / MM / DD - hh : mm')"></span>
               <refresh-cw-icon size="1x" class="inline-block align-text-bottom"></refresh-cw-icon> <span v-text="$moment(currentPost.fields.modifiedAt).format('YYYY / MM / DD - hh : mm')"></span>
@@ -35,7 +35,7 @@
           </div>
         </div>
       </header>
-      <main class="container mx-auto markdown my-16">
+      <main class="container mx-auto markdown my-16 px-6" >
         <p>{{ currentPost.fields.description }}</p>
         <div v-html="$md.render(currentPost.fields.body)"></div>
         <p><nuxt-link to="/"><arrow-left-circle-icon size="1x" class="icon"></arrow-left-circle-icon> top</nuxt-link></p>
