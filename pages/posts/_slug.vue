@@ -28,7 +28,7 @@ export default {
   head () {
     let post = this.currentPost;
     return {
-      title: `${post.fields.title} | ${process.env.npm_package_title}`,
+      title: `${post.fields.title} | The Newt City`,
       meta: [
         { hid: 'description', name: 'description', content: post.fields.description },
         { hid: 'og:type', property: 'og:type', content: 'article' },
@@ -44,7 +44,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['setEyeCatch'])
+    ...mapGetters(['setEyeCatch', 'siteName'])
   },
   jsonld() {
     let post = this.currentPost;
@@ -67,7 +67,7 @@ export default {
         'name': post.fields.author.fields.name
       },
       'Publisher': {
-        '@type': 'Person',
+        '@type': 'Organization',
         'name': 'The Newt City',
         'logo': {
           '@type': 'ImageObject',

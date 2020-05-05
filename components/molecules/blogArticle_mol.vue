@@ -14,8 +14,8 @@
           <div>
             <h1 class="text-3xl md:text-6xl mt-24 md:mt-auto -ml-8 pl-8 md:pl-6 leading-none md:border-l-4 md:border-white text-white mb-8 font-bold palt">{{ currentPost.fields.title }}</h1>
             <p class="mb-2 text-white text-base">
-              <clock-icon size="1x" class="inline-block align-text-bottom"></clock-icon> <span class="mr-4" v-text="$moment(currentPost.fields.publishedAt).format('YYYY / MM / DD - hh : mm')"></span>
-              <refresh-cw-icon size="1x" class="inline-block align-text-bottom"></refresh-cw-icon> <span v-text="$moment(currentPost.fields.modifiedAt).format('YYYY / MM / DD - hh : mm')"></span>
+              <clock-icon size="1x" class="inline-block align-text-bottom"></clock-icon> <time :datetime="$moment(currentPost.fields.publishedAt).format('YYYY-MM-DD hh:mm:ss')" class="mr-4" v-text="$moment(currentPost.fields.publishedAt).format('YYYY / MM / DD - hh : mm')"></time>
+              <refresh-cw-icon size="1x" class="inline-block align-text-bottom"></refresh-cw-icon> <time :datetime="$moment(currentPost.fields.modifiedAt).format('YYYY-MM-DD hh:mm:ss')" v-text="$moment(currentPost.fields.modifiedAt).format('YYYY / MM / DD - hh : mm')"></time>
             </p>
             <p><span :is="draftChip(currentPost)" /></p>
             <p class="mb-16 text-white text-lg">
