@@ -2,11 +2,14 @@
   <article class="">
     <template v-if="currentPost">
       <header class="relative">
-        <img class="w-full h-full absolute object-cover cover-image"
-          :src="setEyeCatch(currentPost.fields.headerImage).url"
-          :alt="setEyeCatch(currentPost.fields.headerImage).title"
-          loading="lazy"
-        />
+        <picture>
+          <source type="image/webp" :srcset="`${setEyeCatch(currentPost.fields.headerImage).url}?fm=webp`">
+          <img class="w-full h-full absolute object-cover cover-image"
+            :src="setEyeCatch(currentPost.fields.headerImage).url"
+            :alt="setEyeCatch(currentPost.fields.headerImage).title"
+            loading="lazy"
+          />
+        </picture>
         <div class="flex flex-col justify-between p-6 md:p-24 h-auto md:h-screen">
           <div>
             <p class="text-white"><nuxt-link to="/"><arrow-left-circle-icon size="3x" class="icon"></arrow-left-circle-icon></nuxt-link></p>
