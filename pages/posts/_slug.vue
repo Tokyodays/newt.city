@@ -36,8 +36,8 @@ export default {
         { hid: 'og:description', property: 'og:description', content: post.fields.description },
         { hid: 'og:url', property: 'og:url', content: `${process.env.npm_package_domain}posts/${post.fields.slug}` },
         { hid: 'og:image', property: 'og:image', content: this.setEyeCatch(post.fields.headerImage).url },
-        { hid: 'auther', name: 'author', content: post.fields.auther.fields.name },
-        { hid: 'article:publisher', property: 'article:publisher', content: post.fields.auther.fields.name },
+        { hid: 'author', name: 'author', content: post.fields.author.fields.name },
+        { hid: 'article:publisher', property: 'article:publisher', content: post.fields.author.fields.name },
         { hid: 'twitter:title', name: 'twitter:title', content: post.fields.title},
         { hid: 'twitter:description', name: 'twitter:description', content: post.fields.description|| '' },
       ],
@@ -62,9 +62,9 @@ export default {
       ],
       'datePublished': post.fields.publishedAt,
       'dateModified': post.fields.modifiedAt,
-      'auther': {
+      'author': {
         '@type': 'Person',
-        'name': post.fields.auther.fields.name
+        'name': post.fields.author.fields.name
       },
       'Publisher': {
         '@type': 'Person',

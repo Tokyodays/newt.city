@@ -30,7 +30,7 @@
               </template>
             </p>
             <p class="text-white text-lg">
-              <span class="border-t-2 border-white pt-8 border-dotted"><pen-tool-icon size="1x" class="icon"></pen-tool-icon> Written by {{ currentPost.fields.auther.fields.name }}</span>
+              <span class="border-t-2 border-white pt-8 border-dotted"><pen-tool-icon size="1x" class="icon"></pen-tool-icon> Written by {{ currentPost.fields.author.fields.name }}</span>
             </p>
           </div>
         </div>

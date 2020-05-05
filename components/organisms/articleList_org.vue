@@ -21,7 +21,7 @@
             </p>
             <p class="mb-2 text-sm text-gray-600">
               <span class="mr-4"><folder-icon size="1x" class="icon"></folder-icon> {{ post.fields.category.fields.name }}</span>
-              <span class="mr-4"><pen-tool-icon size="1x" class="icon"></pen-tool-icon> {{ post.fields.auther.fields.name }}</span>
+              <span class="mr-4"><pen-tool-icon size="1x" class="icon"></pen-tool-icon> {{ post.fields.author.fields.name }}</span>
               <template v-if="post.fields.tags">
                 <span class="text-sm text-gray-600 mr-2"
                   v-for="(tag) in post.fields.tags"
