@@ -71,7 +71,7 @@ export default {
         'name': 'The Newt City',
         'logo': {
           '@type': 'ImageObject',
-          'url': `${process.env.npm_package_domain}assets/images/logo_w_h.svg`
+          'url': `${process.env.npm_package_domain}icon.png`
         }
       },
       'articleBody': post.fields.body,
