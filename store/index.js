@@ -1,7 +1,6 @@
 import defaultEyeCatch from '~/assets/images/defaultImage.png'
 import client from '~/plugins/contentful'
 
-// 追記
 export const state = () => ({
   posts: [],
   categories: [],
