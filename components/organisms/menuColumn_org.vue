@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-baseColor p-6 flex flex-col justify-between" id="MAIN_MENU">
+  <nav class="bg-baseColor p-6 flex flex-col justify-between" id="MAIN_MENU">
     <div>
       <logo-mark></logo-mark>
       <category-list class="my-12"></category-list>
@@ -8,7 +8,7 @@
     <div>
       <copy-right></copy-right>
     </div>
-  </header>
+  </nav>
 </template>
 <script>
 import logoMark from '@/components/atom/logoMark_atom'
