@@ -11,8 +11,8 @@
   </header>
 </template>
 <script>
-import logoMark from '@/components/atom/logoMark_atom'
-import copyRight from '@/components/atom/copyRight_atom'
+import logoMark from '@/components/atoms/logoMark_atom'
+import copyRight from '@/components/atoms/copyRight_atom'
 import categoryList from '@/components/molecules/categoryList_mol'
 import tagList from '@/components/molecules/tagList_mol'
 

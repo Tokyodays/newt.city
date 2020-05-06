@@ -15,7 +15,7 @@
 import { mapGetters } from 'vuex'
 import blogArticle from '@/components/molecules/blogArticle_mol'
 import MenuColumn from '@/components/organisms/menuColumn_org'
-import LogoMark from '@/components/atom/logoMark_atom'
+import LogoMark from '@/components/atoms/logoMark_atom'
 import { MenuIcon } from 'vue-feather-icons'
 
 export default {
