@@ -4,7 +4,7 @@
       <h1><logo-mark></logo-mark></h1>
       <nav class="mt-auto mb-auto"><nuxt-link to="#MAIN_MENU"><menu-icon size="2.0x" class="text-white inline-block"></menu-icon></nuxt-link></nav>
     </header>
-    <main class="md:row-start-1 md:col-start-2 md:col-span-3">
+    <main class="md:row-start-1 md:col-start-2 md:col-span-3 md:overflow-y-scroll">
       <blog-article :currentPost="currentPost"></blog-article>
     </main>
     <menu-column class="md:row-start-1 md:col-start-1"></menu-column>
@@ -28,7 +28,7 @@ export default {
   head () {
     let post = this.currentPost;
     return {
-      title: `${post.fields.title} | ${process.env.npm_package_title}`,
+      title: `${post.fields.title} | The Newt City`,
       meta: [
         { hid: 'description', name: 'description', content: post.fields.description },
         { hid: 'og:type', property: 'og:type', content: 'article' },
@@ -36,15 +36,15 @@ export default {
         { hid: 'og:description', property: 'og:description', content: post.fields.description },
         { hid: 'og:url', property: 'og:url', content: `${process.env.npm_package_domain}posts/${post.fields.slug}` },
         { hid: 'og:image', property: 'og:image', content: this.setEyeCatch(post.fields.headerImage).url },
-        { hid: 'auther', name: 'author', content: post.fields.auther.fields.name },
-        { hid: 'article:publisher', property: 'article:publisher', content: post.fields.auther.fields.name },
+        { hid: 'author', name: 'author', content: post.fields.author.fields.name },
+        { hid: 'article:publisher', property: 'article:publisher', content: post.fields.author.fields.name },
         { hid: 'twitter:title', name: 'twitter:title', content: post.fields.title},
         { hid: 'twitter:description', name: 'twitter:description', content: post.fields.description|| '' },
       ],
     }
   },
   computed: {
-    ...mapGetters(['setEyeCatch'])
+    ...mapGetters(['setEyeCatch', 'siteName'])
   },
   jsonld() {
     let post = this.currentPost;
@@ -62,9 +62,9 @@ export default {
       ],
       'datePublished': post.fields.publishedAt,
       'dateModified': post.fields.modifiedAt,
-      'auther': {
+      'author': {
         '@type': 'Person',
-        'name': post.fields.auther.fields.name
+        'name': post.fields.author.fields.name
       },
       'Publisher': {
         '@type': 'Organization',
@@ -74,7 +74,6 @@ export default {
           'url': `${process.env.npm_package_domain}amp-icon.png`,
           'width': 217,
           'height': 60
-
         }
       },
       'articleBody': post.fields.body,
