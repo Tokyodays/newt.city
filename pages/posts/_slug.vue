@@ -71,7 +71,7 @@ export default {
         'name': 'The Newt City',
         'logo': {
           '@type': 'ImageObject',
-          'url': `${process.env.npm_package_domain}amp-icon.png`,
+          'url': `${process.env.npm_package_domain}amp-logo.png`,
           'width': 217,
           'height': 60
         }
