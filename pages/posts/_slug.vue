@@ -71,12 +71,15 @@ export default {
         'name': 'The Newt City',
         'logo': {
           '@type': 'ImageObject',
-          'url': `${process.env.npm_package_domain}icon.png`
+          'url': `${process.env.npm_package_domain}amp-icon.png`,
+          'width': 217,
+          'height': 60
         }
       },
       'articleBody': post.fields.body,
       'articleSection': post.fields.category.fields.name,
       'wordCount': post.fields.body.length,
+      'mainEntityOfPage': `${process.env.npm_package_domain}posts/${post.fields.slug}`,
       'url': `${process.env.npm_package_domain}posts/${post.fields.slug}`
     }
   },
