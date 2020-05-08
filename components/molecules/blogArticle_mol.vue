@@ -3,6 +3,8 @@
     <template v-if="currentPost">
       <header class="relative">
         <img class="w-full h-full absolute object-cover cover-image"
+          width="640"
+          height="480"
           :src="setEyeCatch(currentPost.fields.headerImage).url"
           :alt="setEyeCatch(currentPost.fields.headerImage).title"
           loading="lazy"
