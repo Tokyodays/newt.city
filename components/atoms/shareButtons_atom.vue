@@ -7,28 +7,35 @@
            target="_blank"
            title="twitter-tweet"
            data-show-count="false"
-           data-lang="ja"/>
+           data-lang="ja"><twitter-icon size="1.5x" class="custom-class"></twitter-icon></a>
       </li>
       <li class="widget__item">
         <a :href="facebookUrl()"
            class="fb-share-button"
            target="_blank"
            title="facebook-share"
-           data-layout="button_count"/>
+           data-layout="button_count"><facebook-icon size="1.5x" class="custom-class"></facebook-icon></a>
       </li>
       <li>
         <a :href="lineUrl"
            class="line-share-button"
            target="_blank"
-           title="line-send"></a>
+           title="line-send"><img src="@/assets/images/line_a.svg" width="32" height="32" /></a>
       </li>
     </ul>
   </section>
 </template>
 
 <script>
+import { FacebookIcon, TwitterIcon} from 'vue-feather-icons'
+
 export default {
   name: 'ShareButtons',
+
+  components: {
+    FacebookIcon,
+    TwitterIcon
+  },
 
   props: {
     title: String
@@ -36,7 +43,7 @@ export default {
 
   data: function() {
     return {
-      url: `(ここには置いてあるサーバーのURLを入れます。 e.g. https:／／note.mu)${this.$route.path}`,
+      url: `https://www.newt.city${this.$route.path}`,
       twitter_url: 'https://twitter.com/intent/tweet?url={0}&text={1}',
       facebook_url: 'https://www.facebook.com/sharer/sharer.php?u={0}&text={1}',
       line_url: 'https://social-plugins.line.me/lineit/share?url={0}&text={1}'

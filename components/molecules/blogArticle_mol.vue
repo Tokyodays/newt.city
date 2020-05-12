@@ -39,7 +39,7 @@
         </div>
       </header>
       <main class="container mx-auto markdown my-16 px-6" >
-        <share-buttons :title="title" />
+        <share-buttons :title="currentPost.fields.title" />
         <p>{{ currentPost.fields.description }}</p>
         <div v-html="$md.render(currentPost.fields.body)"></div>
         <p><nuxt-link to="/"><arrow-left-circle-icon size="1x" class="icon"></arrow-left-circle-icon> top</nuxt-link></p>
