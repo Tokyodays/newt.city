@@ -38,7 +38,7 @@
           </div>
         </div>
       </header>
-      <main class="container mx-auto markdown my-16 px-6" >
+      <main class="container md:mx-auto markdown my-16 px-6 md:px-24" >
         <share-buttons :title="currentPost.fields.title" :tags="currentPost.fields.tags" :category="currentPost.fields.category.fields.name" />
         <p>{{ currentPost.fields.description }}</p>
         <div v-html="$md.render(currentPost.fields.body)"></div>
