@@ -43,7 +43,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import draftChip from '~/components/atom/draftChip'
+import draftChip from '~/components/atoms/draftChip_atom'
 import categoryList from '@/components/molecules/categoryList_mol'
 import tagList from '@/components/molecules/tagList_mol'
 

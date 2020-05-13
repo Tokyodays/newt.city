@@ -15,7 +15,7 @@
             <p class="text-white"><nuxt-link to="/"><arrow-left-circle-icon size="3x" class="icon"></arrow-left-circle-icon></nuxt-link></p>
           </div>
           <div>
-            <h1 class="text-3xl md:text-6xl mt-24 md:mt-auto -ml-8 pl-8 md:pl-6 leading-none md:border-l-4 md:border-white text-white mb-8 font-bold palt">{{ currentPost.fields.title }}</h1>
+            <h1 class="text-3xl md:text-5xl mt-24 md:mt-auto -ml-8 pl-8 md:pl-6 leading-none md:border-l-4 md:border-white text-white mb-8 font-bold palt">{{ currentPost.fields.title }}</h1>
             <p class="mb-2 text-white text-base">
               <clock-icon size="1x" class="inline-block align-text-bottom"></clock-icon> <time :datetime="$moment(currentPost.fields.publishedAt).format('YYYY-MM-DD hh:mm:ss')" class="mr-4" v-text="$moment(currentPost.fields.publishedAt).format('YYYY / MM / DD - hh : mm')"></time>
               <refresh-cw-icon size="1x" class="inline-block align-text-bottom"></refresh-cw-icon> <time :datetime="$moment(currentPost.fields.modifiedAt).format('YYYY-MM-DD hh:mm:ss')" v-text="$moment(currentPost.fields.modifiedAt).format('YYYY / MM / DD - hh : mm')"></time>
@@ -39,6 +39,7 @@
         </div>
       </header>
       <main class="container mx-auto markdown my-16 px-6" >
+        <share-buttons :title="currentPost.fields.title" :tags="currentPost.fields.tags" :category="currentPost.fields.category.fields.name" />
         <p>{{ currentPost.fields.description }}</p>
         <div v-html="$md.render(currentPost.fields.body)"></div>
         <p><nuxt-link to="/"><arrow-left-circle-icon size="1x" class="icon"></arrow-left-circle-icon> top</nuxt-link></p>
@@ -55,7 +56,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import draftChip from '~/components/atom/draftChip'
+import draftChip from '~/components/atoms/draftChip_atom'
+import shareButtons from '~/components/atoms/shareButtons_atom'
 
 import { TagIcon, FolderIcon, ClockIcon, RefreshCwIcon, PenToolIcon, ArrowLeftCircleIcon } from 'vue-feather-icons'
 
@@ -73,7 +75,13 @@ export default {
     ClockIcon, 
     RefreshCwIcon, 
     PenToolIcon,
-    ArrowLeftCircleIcon
+    ArrowLeftCircleIcon,
+    shareButtons
+  },
+    data: function() {
+    return {
+      title: 'sns-widget'
+    }
   },
   computed: {
     ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'categoryColor'])
@@ -81,7 +89,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .icon {
   @apply inline-block align-text-bottom
 }

@@ -14,7 +14,7 @@
 <script>
 import articleList from '@/components/organisms/articleList_org'
 import MenuColumn from '@/components/organisms/menuColumn_org'
-import LogoMark from '@/components/atom/logoMark_atom'
+import LogoMark from '@/components/atoms/logoMark_atom'
 import { MenuIcon } from 'vue-feather-icons'
 
 export default {
