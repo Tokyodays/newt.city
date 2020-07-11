@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <div>
     <ul v-for="(post, i) in posts" :key="i">
       <li>
         <nuxt-link class="flex overflow overflow-hidden"
@@ -38,11 +38,11 @@
         </nuxt-link>
       </li>
     </ul>
-  </article>
+  </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import draftChip from '~/components/atoms/draftChip_atom'
 import categoryList from '@/components/molecules/categoryList_mol'
 import tagList from '@/components/molecules/tagList_mol'
@@ -50,6 +50,11 @@ import tagList from '@/components/molecules/tagList_mol'
 import { TagIcon, FolderIcon, ClockIcon, RefreshCwIcon, PenToolIcon } from 'vue-feather-icons'
 
 export default {
+  props: {
+    posts: {
+      type: Array
+    }
+  },
   components: {
     draftChip,
     categoryList,
@@ -61,7 +66,6 @@ export default {
     PenToolIcon
   },
   computed : {
-    ...mapState(['posts']),
     ...mapGetters(['setEyeCatch', 'draftChip', 'linkTo', 'categoryColor']) 
   }
 }
@@ -92,6 +96,4 @@ export default {
     transition-timing-function:ease-in-out;
   }
 }
-
-
 </style>
