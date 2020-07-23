@@ -11,10 +11,12 @@
       </nav>
     </header>
     <main class="md:row-start-1 md:col-start-2 md:col-span-3 md:overflow-y-scroll">
-      <div>
-        <h1>{{ category.fields.name }}</h1>
-        <article-list :posts="relatedPosts"></article-list>
-      </div>
+      <header class="container mx-auto p-8">
+        <figure class="mb-8"><img class="object-cover h-48 w-full" :src="category.fields.categoryImage.fields.file.url"></figure>
+        <h1 class="text-3xl mb-2">{{ category.fields.name }}</h1>
+        <p>{{ category.fields.difinition }}</p>
+      </header>  
+      <article-list :posts="relatedPosts"></article-list>
     </main>
     <menu-column class="md:row-start-1 md:col-start-1"></menu-column>
   </div>
