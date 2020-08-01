@@ -1,5 +1,6 @@
 require('dotenv').config();
 const client = require('./plugins/contentful').default
+const domain = process.env.BASE_URL.match(/^https?:\/{2,}(.*?)(?:\/|\?|#|$)/)[1]
 
 export default {
   mode: 'universal',
@@ -106,7 +107,13 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    ['@nuxtjs/google-adsense', {
+      id: process.env.GA_ADSENSE_ID,
+      pageLevelAds: true,
+      analyticsUacct: process.env.GA_TRACKING_ID, // アナリティクスと連携する場合のみ必要
+      analyticsDomainName: domain                 // アナリティクスと連携する場合のみ必要
+    }]
   ],
 
   router: {
