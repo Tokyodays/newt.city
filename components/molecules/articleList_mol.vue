@@ -5,7 +5,7 @@
         <nuxt-link class="flex overflow overflow-hidden"
           :to="linkTo('posts', post)"
         >
-          <picture class="w-4/12 relative overflow-hidden">
+          <picture class="md:w-4/12 w-12/12 relative overflow-hidden">
             <source type="image/webp" :srcset="`${setEyeCatch(post.fields.headerImage).url}?fm=webp`">
             <img class="w-full h-full absolute object-cover"
               loading="lazy"
@@ -13,8 +13,11 @@
               :alt="setEyeCatch(post.fields.headerImage).title"
             />
           </picture>
-          <div class="w-8/12 border-b px-12 py-6 md:p-16 over">
-            <h1 class="text-xl -ml-2 pl-2 border-l-2 md:text-2xl md:-ml-4 md:pl-4 md:border-l-4 leading-none border-darkColor1 text-gray-800 mb-4 leading-normal" style="transform: translate(-4px, 0);">{{ post.fields.title }}</h1>
+          <div class="md:w-8/12 w-12/12 border-b px-12 py-6 md:p-16 over">
+            <div class="-ml-2 pl-2 border-l-2 md:-ml-4 md:pl-4 md:border-l-4 border-darkColor1 text-gray-800 mb-4 leading-normal">
+              <h1 class="text-xl md:text-2xl mb-2" style="transform: translate(-4px, 0);">{{ post.fields.title }}</h1>
+              <h2 class="text-lg md:text-xl" style="transform: translate(-4px, 0);">{{ post.fields.subtitle }}</h2>
+            </div>
             <p :is="draftChip(post)" />
             <p class="mb-2 text-subColor2 text-xs">
               <clock-icon size="1x" class="inline-block align-text-bottom"></clock-icon> <time :datetime="$moment(post.fields.modifiedAt).format('YYYY-MM-DD hh:mm:ss')" class="mr-4" v-text="$moment(post.fields.publishedAt).format('YYYY / MM / DD')"></time>

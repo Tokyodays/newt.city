@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-baseColor p-6 flex flex-col justify-between" id="MAIN_MENU">
+  <nav class="bg-baseColor p-6 flex flex-col justify-between shadow" id="MAIN_MENU">
     <div>
       <logo-mark></logo-mark>
       <category-list class="my-12"></category-list>
