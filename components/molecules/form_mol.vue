@@ -1,5 +1,5 @@
 <template>
-  <form name="contact" method="POST" action="/thanks" class="mx-6 md:mx-32 lg:mx-64 my-16" netlify>
+  <form name="contact" method="POST" action="/thanks" class="mx-6 md:mx-32 lg:mx-64 my-16" data-netlify="true">
   <h1 class="text-2xl mb-4 text-teal-600 border-darkColor1 border-l-2 pl-4">お問い合わせ</h1>
   <p class="mb-8 text-gray-800">気軽にお問い合わせください。</p>
   <div class="flex flex-wrap mb-6">
