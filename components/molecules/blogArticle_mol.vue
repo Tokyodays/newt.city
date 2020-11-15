@@ -15,7 +15,10 @@
             <p class="text-white"><nuxt-link to="/"><arrow-left-circle-icon size="3x" class="icon"></arrow-left-circle-icon></nuxt-link></p>
           </div>
           <div>
-            <h1 class="text-3xl md:text-5xl mt-24 md:mt-auto -ml-8 pl-8 md:pl-6 leading-none md:border-l-4 md:border-white text-white mb-8 font-bold palt leading-normal">{{ currentPost.fields.title }}</h1>
+            <div class="mt-24 md:mt-auto pl-0 md:pl-6 md:border-l-4 md:border-white text-white mb-8 palt leading-normal">
+              <h1 class="text-3xl md:text-5xl font-bold mb-4">{{ currentPost.fields.title }}</h1>
+              <h2 class="text-2xl md:text-3xl font-normal">{{ currentPost.fields.subtitle }}</h2>
+            </div>
             <p class="mb-2 text-white text-base">
               <clock-icon size="1x" class="inline-block align-text-bottom"></clock-icon> <time :datetime="$moment(currentPost.fields.publishedAt).format('YYYY-MM-DD hh:mm:ss')" class="mr-4" v-text="$moment(currentPost.fields.publishedAt).format('YYYY / MM / DD - hh : mm')"></time>
               <refresh-cw-icon size="1x" class="inline-block align-text-bottom"></refresh-cw-icon> <time :datetime="$moment(currentPost.fields.modifiedAt).format('YYYY-MM-DD hh:mm:ss')" v-text="$moment(currentPost.fields.modifiedAt).format('YYYY / MM / DD - hh : mm')"></time>
@@ -139,8 +142,12 @@ export default {
 .markdown a {
   @apply text-blue-600;
 }
-.markdown a:hover {
+.markdown a:link,
+.markdown a:visited {
   @apply underline;
+}
+.markdown a:hover {
+  @apply no-underline;
 }
 /* Paragraph */
 .markdown p {

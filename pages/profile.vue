@@ -5,7 +5,7 @@
       <nav class="mt-auto mb-auto"><nuxt-link to="#MAIN_MENU"><menu-icon size="2.0x" class="text-white inline-block"></menu-icon></nuxt-link></nav>
     </header>
     <main class="md:row-start-1 md:col-start-2 md:col-span-3 md:overflow-y-scroll">
-      <article-lists></article-lists>
+      about me
     </main>
     <menu-column class="md:row-start-1 md:col-start-1"></menu-column>
   </div>
@@ -26,3 +26,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+p {
+  margin-bottom: 1rem;
+  text-indent: 0.5em;
+}
+a:link,
+a:visited {
+  text-decoration: underline;
+}
+a:hover {
+  text-decoration: none;
+}
+</style>
