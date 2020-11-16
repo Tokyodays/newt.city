@@ -75,6 +75,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+img {
+  -webkit-filter : saturate(30%) sepia(25%) grayscale(25%);
+  filter : saturate(30%) sepia(25%) grayscale(25%);
+}
 .icon {
   @apply text-darkColor1 inline-block align-text-bottom
 }

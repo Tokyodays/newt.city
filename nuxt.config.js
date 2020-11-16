@@ -180,7 +180,7 @@ export default {
   },
 
   server: {
-    port: 3333, // デフォルト: 3000
+    port: 3030, // デフォルト: 3000
   },
 
   generate: {
