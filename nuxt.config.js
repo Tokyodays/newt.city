@@ -179,6 +179,10 @@ export default {
     }
   },
 
+  server: {
+    port: 3333, // デフォルト: 3000
+  },
+
   generate: {
     routes() {
       return Promise.all([
