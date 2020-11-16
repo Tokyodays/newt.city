@@ -3,7 +3,8 @@ const client = require('./plugins/contentful').default
 const domain = process.env.BASE_URL.match(/^https?:\/{2,}(.*?)(?:\/|\?|#|$)/)[1]
 
 export default {
-  mode: 'universal',
+  target: 'static',
+  
   /*
   ** Headers of the page
   */
