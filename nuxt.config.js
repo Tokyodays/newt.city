@@ -3,7 +3,8 @@ const client = require('./plugins/contentful').default
 const domain = process.env.BASE_URL.match(/^https?:\/{2,}(.*?)(?:\/|\?|#|$)/)[1]
 
 export default {
-  mode: 'universal',
+  target: 'static',
+  
   /*
   ** Headers of the page
   */
@@ -177,6 +178,10 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+
+  server: {
+    port: 3030, // デフォルト: 3000
   },
 
   generate: {
