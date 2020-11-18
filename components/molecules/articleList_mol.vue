@@ -2,19 +2,19 @@
   <div>
     <ul v-for="(post, i) in posts" :key="i">
       <li>
-        <nuxt-link class="flex overflow overflow-hidden"
+        <nuxt-link class="md:flex overflow overflow-hidden"
           :to="linkTo('posts', post)"
         >
-          <picture class="md:w-4/12 w-12/12 relative overflow-hidden">
+          <picture class="md:w-4/12 w-full relative overflow-hidden">
             <source type="image/webp" :srcset="`${setEyeCatch(post.fields.headerImage).url}?fm=webp`">
-            <img class="w-full h-full absolute object-cover"
+            <img class="w-full h-full md:absolute static object-cover"
               loading="lazy"
               :src="setEyeCatch(post.fields.headerImage).url"
               :alt="setEyeCatch(post.fields.headerImage).title"
             />
           </picture>
-          <div class="md:w-8/12 w-12/12 border-b px-12 py-6 md:p-16 over">
-            <div class="-ml-2 pl-2 border-l-2 md:-ml-4 md:pl-4 md:border-l-4 border-darkColor1 text-gray-800 mb-4 leading-normal">
+          <div class="md:w-8/12 w-full border-b px-12 py-6 md:p-16 over">
+            <div class="-ml-2 pl-4 border-l-2 md:-ml-4 md:pl-4 md:border-l-4 border-darkColor1 text-gray-800 mb-4 leading-normal">
               <h1 class="text-xl md:text-2xl mb-2" style="transform: translate(-4px, 0);">{{ post.fields.title }}</h1>
               <h2 class="text-lg md:text-xl" style="transform: translate(-4px, 0);">{{ post.fields.subtitle }}</h2>
             </div>
