@@ -1,5 +1,5 @@
 <template>
-  <aside>
+  <aside class="my-12">
     <h1 class="text-white text-2xl mb-4">Appendix</h1>
     <ul>
       <li class="mb-2">
