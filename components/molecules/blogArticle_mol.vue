@@ -128,11 +128,15 @@ export default {
   letter-spacing: .1em;
 }
 /* Headers */
-.markdown h1,
-.markdown h2 {
-  @apply text-2xl mt-12 mb-6 font-bold;
+.markdown h1 {
+  @apply text-4xl mt-12 mb-6 font-bold text-indigo-800;
 }
-.markdown h3,
+.markdown h2 {
+  @apply text-3xl mt-12 mb-6 font-bold text-gray-700;
+}
+.markdown h3 {
+  @apply text-2xl mt-12 mb-6 font-bold text-gray-800;
+}
 .markdown h4,
 .markdown h5,
 .markdown h6 {
