@@ -118,8 +118,10 @@ export default {
   ],
 
   router: {
+    trailingSlash: true,
     middleware: [
-      'getContentful'
+      'getContentful',
+      'redirect'
     ]
   },
   
