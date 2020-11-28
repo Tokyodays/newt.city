@@ -104,21 +104,7 @@ export default {
   font-feature-settings: "palt";
   letter-spacing: .1em;
 }
-.table-of-contents {
-  background: #f3f3f3;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  width: fit-content;
-  margin: 3rem 0;
-  ul {
-    padding-left: 24px;
-  }
-  &:before {
-    content: 'index';
-    font-weight: bold;
-    font-size: 16px;
-  }
-}
+
 /* purgecss start ignore */
 /* Markdown Styles */
 /* Global */
@@ -126,13 +112,34 @@ export default {
   @apply leading-relaxed text-lg;
   font-feature-settings: "palt";
   letter-spacing: .1em;
+
+  .table-of-contents {
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    width: fit-content;
+    margin: 3rem 0;
+    ul {
+      padding-left: 24px;
+      margin-left: 0;
+    }
+    &:before {
+      content: 'index';
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
 }
 /* Headers */
-.markdown h1,
-.markdown h2 {
-  @apply text-2xl mt-12 mb-6 font-bold;
+.markdown h1 {
+  @apply text-4xl mt-24 mb-12 font-bold text-indigo-800;
 }
-.markdown h3,
+.markdown h2 {
+  @apply text-3xl mt-16 mb-8 font-bold text-gray-700;
+}
+.markdown h3 {
+  @apply text-2xl mt-12 mb-6 font-bold text-gray-800;
+}
 .markdown h4,
 .markdown h5,
 .markdown h6 {
@@ -151,7 +158,7 @@ export default {
 }
 /* Paragraph */
 .markdown p {
-  @apply mb-4;
+  @apply mb-8 leading-relaxed;
 }
 /* Lists */
 .markdown ul,
@@ -200,5 +207,12 @@ export default {
   padding:0 20px;
   text-align:justify;
   font-family:calibri,arial,sans-serif;
+}
+.markdown figure {
+  @apply my-8 mx-auto;
+  max-width: 80vh;
+  figcaption {
+    @apply text-base mt-2 text-gray-700;
+  }
 }
 </style>

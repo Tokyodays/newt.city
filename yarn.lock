@@ -5506,6 +5506,11 @@ markdown-it-anchor@^6.0.0:
   resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-6.0.0.tgz#2ec2554fa4d065f2d1ca2422a50c14c10cf67c2a"
   integrity sha512-WOcIGhG1M1W94VV5cmSZAMSKi2vqCxpLAqQZ0wSO9RzQ9Rbls7ecjRVXp5DIPoXrNy9bjv9K7M0nYqNk60ctxQ==
 
+markdown-it-image-figures@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-image-figures/-/markdown-it-image-figures-1.0.0.tgz#7c51d4dc7d23c58423eee2317ecc81e11b57d6b6"
+  integrity sha512-x3g+E6kr+mCjsIBPIKUOmqGNIL15K2h4aDlPJAzAPRPazbYpgA029YBpI1kYNK1P4IQ+JyTQr89Or7hO134LvA==
+
 markdown-it-table-of-contents@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/markdown-it-table-of-contents/-/markdown-it-table-of-contents-0.4.4.tgz#3dc7ce8b8fc17e5981c77cc398d1782319f37fbc"
