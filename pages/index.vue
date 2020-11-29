@@ -23,6 +23,11 @@ export default {
     MenuColumn,
     LogoMark,
     MenuIcon
+  },
+  mounted () {
+    if (window.dataLayer) {
+      window.dataLayer.push({ event: 'optimize.activate' })
+    }
   }
 }
 </script>
