@@ -3,7 +3,7 @@
     <template v-if="currentPost">
       <header class="relative">
         <picture>
-          <source type="image/webp" :srcset="`${setEyeCatch(currentPost.fields.headerImage).url}?fm=webp`">
+          <source type="image/webp" :srcset="`${setEyeCatch(currentPost.fields.headerImage).url}?fit=fill&w=460&fm=webp`">
           <img class="w-full h-full absolute object-cover cover-image"
             :src="setEyeCatch(currentPost.fields.headerImage).url"
             :alt="setEyeCatch(currentPost.fields.headerImage).title"

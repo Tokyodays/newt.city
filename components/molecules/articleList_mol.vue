@@ -6,7 +6,7 @@
           :to="linkTo('posts', post)"
         >
           <picture class="md:w-4/12 w-full relative overflow-hidden">
-            <source type="image/webp" :srcset="`${setEyeCatch(post.fields.headerImage).url}?fm=webp`">
+            <source type="image/webp" :srcset="`${setEyeCatch(post.fields.headerImage).url}?fit=fill&w=460&fm=webp`">
             <img class="w-full h-full md:absolute static object-cover"
               loading="lazy"
               :src="setEyeCatch(post.fields.headerImage).url"
