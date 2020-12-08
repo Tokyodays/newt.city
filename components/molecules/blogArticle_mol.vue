@@ -129,6 +129,45 @@ export default {
       font-size: 16px;
     }
   }
+
+  a.button {
+    &:before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      color: #fff;
+      line-height: 1;
+      width: 8px;
+      height: 8px;
+      border: 1px solid currentColor;
+      border-left: 0;
+      border-bottom: 0;
+      box-sizing: border-box;
+      transform: translateX(0%) rotate(45deg);
+      margin-right: 0.5em;
+      margin-bottom: 2px;
+    }
+    @apply font-normal py-3 px-6 rounded items-center;
+    img {
+      display: inline-block;
+    }
+    &:link, &:visited {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+  a.button_tabelog {
+    background-color: #fa0;
+    color: #fff;
+  }
+  a.button_gnavi {
+    background-color: #dc0012;
+    color: #fff;
+  }
+  
 }
 /* Headers */
 .markdown h1 {
@@ -210,7 +249,7 @@ export default {
 }
 .markdown figure {
   @apply my-8 mx-auto;
-  max-width: 80vh;
+  max-width: 640px;
   figcaption {
     @apply text-base mt-2 text-gray-700;
   }
