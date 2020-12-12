@@ -38,8 +38,10 @@ export default {
         { hid: 'og:image', property: 'og:image', content: this.setEyeCatch(post.fields.headerImage).url },
         { hid: 'author', name: 'author', content: post.fields.author.fields.name },
         { hid: 'article:publisher', property: 'article:publisher', content: post.fields.author.fields.name },
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { hid: 'twitter:site', name: 'twitter:site', content: '@kikuchi_takeshi' },
         { hid: 'twitter:title', name: 'twitter:title', content: post.fields.title},
-        { hid: 'twitter:description', name: 'twitter:description', content: post.fields.description|| '' },
+        { hid: 'twitter:description', name: 'twitter:description', content: post.fields.description || '' },
       ],
     }
   },
