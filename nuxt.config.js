@@ -195,7 +195,7 @@ export default {
   // public ENV
   // Doc: https://nuxtjs.org/guide/runtime-config/
   publicRuntimeConfig: {},
-  /*
+
   generate: {
     routes() {
       return Promise.all([
@@ -223,5 +223,4 @@ export default {
       })
     }
   }
-  */
 }
