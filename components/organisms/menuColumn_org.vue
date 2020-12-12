@@ -8,7 +8,7 @@
     </div>
     <div>
       <ul class="list-disc pl-4">
-        <li class="text-white text-sm"><nuxt-link to="policy">Privacy Policy</nuxt-link></li>
+        <li class="text-white text-sm"><nuxt-link to="/policy">Privacy Policy</nuxt-link></li>
       </ul>
       <copy-right></copy-right>
     </div>
