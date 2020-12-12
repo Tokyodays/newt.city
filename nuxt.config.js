@@ -186,6 +186,16 @@ export default {
     port: 3030, // デフォルト: 3000
   },
 
+  /*
+  ** Auto import components
+  ** See https://nuxtjs.org/api/configuration-components
+  */
+  components: true,
+
+  // public ENV
+  // Doc: https://nuxtjs.org/guide/runtime-config/
+  publicRuntimeConfig: {},
+  /*
   generate: {
     routes() {
       return Promise.all([
@@ -213,4 +223,5 @@ export default {
       })
     }
   }
+  */
 }
